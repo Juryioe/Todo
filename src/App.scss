@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #171722;
+}
+
+.container {
+  margin: 15vh auto;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: antiquewhite;
+  padding-bottom: 2rem;
+  font-size: 2.5rem;
+}
