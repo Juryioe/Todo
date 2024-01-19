@@ -1,4 +1,7 @@
 .todoWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   color: #d5cece;
   background-color: #24273d;
@@ -7,4 +10,8 @@
   border-radius: 5px;
   margin-top: 10px;
   letter-spacing: 1px;
+  h6 {
+    cursor: pointer;
+    color: pink;
+  }
 }
