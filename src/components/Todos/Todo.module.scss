@@ -10,8 +10,25 @@
   border-radius: 5px;
   margin-top: 10px;
   letter-spacing: 1px;
+  .task {
+    max-width: 320px;
+    font-weight: 400;
+  }
   h6 {
     cursor: pointer;
     color: pink;
+  }
+  .taskWrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+  }
+  .todoIcon {
+    color: #c5bebe;
+  }
+  .deleteIcon {
+    color: #c5bebe;
+    cursor: pointer;
   }
 }

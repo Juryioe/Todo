@@ -1,7 +1,8 @@
 import './App.scss'
 import TodoForm from './components/Todos/TodoForm'
 import TodoList from './components/Todos/TodoList'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5'
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -27,7 +28,10 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Todo app</h1>
+      <div className="logoWrapper">
+        <IoCheckmarkDoneCircleOutline size={'3rem'} className="logoIcon" />
+        <h1>Todo app</h1>
+      </div>
       <TodoForm addTodo={addTodoHandler} />
       <TodoList todos={todos} deleteTodo={deleteTodoHandler} />
     </div>
