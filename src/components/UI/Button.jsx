@@ -1,7 +1,16 @@
 import styles from './Button.module.scss'
 
-function Button() {
-  return <button className={styles.button}>Add</button>
+function ButtonAdd({ onClick, children, title, disabled = false }) {
+  return (
+    <button
+      className={styles.btnAdd}
+      onClick={onclick}
+      title={title}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  )
 }
 
-export default Button
+export default ButtonAdd

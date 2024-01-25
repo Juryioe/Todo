@@ -1,13 +1,12 @@
-import './App.scss'
-import TodoForm from './components/Todos/TodoForm'
-import TodoList from './components/Todos/TodoList'
 import { useState } from 'react'
 import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5'
 import { uid } from 'uid'
+import './App.scss'
+import TodoForm from './components/Todos/TodoForm'
+import TodoList from './components/Todos/TodoList'
 
 function App() {
   const [todos, setTodos] = useState([])
-  const [completedTodos, setCompletedTodos] = useState([])
 
   // useEffect(() => {
   //   const storedTodos = JSON.parse(localStorage.getItem('todos'))
@@ -35,7 +34,9 @@ function App() {
     )
   }
 
-  console.log(todos)
+  const deleteCompletedTodoHandler = () => {
+    console.log('works')
+  }
 
   return (
     <div className="container">
@@ -46,9 +47,10 @@ function App() {
       <TodoForm addTodo={addTodoHandler} />
       <TodoList
         todos={todos}
+        setTodos={setTodos}
         deleteTodo={deleteTodoHandler}
         todoCompleted={todoCompletedHandler}
-        completedTodos={completedTodos}
+        deleteCompletedHandler={deleteCompletedTodoHandler}
       />
     </div>
   )

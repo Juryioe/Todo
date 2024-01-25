@@ -1,16 +1,24 @@
 import styles from './TodoList.module.scss'
 import Todo from './Todo'
+import TodosActions from './TodosActions'
 
-function TodoList({ todos, deleteTodo, completedTodos, todoCompleted }) {
+function TodoList({
+  todos,
+  deleteTodo,
+  todoCompleted,
+  setTodos,
+  deleteCompletedHandler,
+}) {
   return (
     <div className={styles.todoListContainer}>
-      {!!todos.length && (
-        <div className={styles.status}>
-          <div>Active: {todos.length - completedTodos.length}</div>
-          <div>Completed: {completedTodos.length}</div>
-        </div>
-      )}
-
+      <div className={styles.actionsContainer}>
+        {todos.length > 0 && (
+          <TodosActions
+            setTodos={setTodos}
+            deleteCompletedHandler={deleteCompletedHandler}
+          />
+        )}
+      </div>
       {todos.map((todo) => (
         <div key={todo.id}>
           <Todo
