@@ -3,6 +3,7 @@ import Todo from './Todo'
 import TodosActions from './TodosActions'
 
 function TodoList({
+  todo,
   todos,
   deleteTodo,
   todoCompleted,
@@ -15,6 +16,7 @@ function TodoList({
         {todos.length > 0 && (
           <TodosActions
             setTodos={setTodos}
+            todo={todo}
             deleteCompletedHandler={deleteCompletedHandler}
           />
         )}

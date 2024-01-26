@@ -1,6 +1,5 @@
 import { LuRefreshCcw } from 'react-icons/lu'
 import { AiFillDelete } from 'react-icons/ai'
-
 import styles from './TodoActions.module.scss'
 
 function TodosActions({ setTodos, deleteCompletedHandler }) {

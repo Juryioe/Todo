@@ -1,16 +1,9 @@
-import styles from './Button.module.scss'
-
-function ButtonAdd({ onClick, children, title, disabled = false }) {
+function Button({ onClick, children, title, disabled = false }) {
   return (
-    <button
-      className={styles.btnAdd}
-      onClick={onclick}
-      title={title}
-      disabled={disabled}
-    >
+    <button onClick={onclick} title={title} disabled={disabled}>
       {children}
     </button>
   )
 }
 
-export default ButtonAdd
+export default Button
