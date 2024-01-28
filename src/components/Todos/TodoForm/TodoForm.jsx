@@ -1,5 +1,5 @@
 import styles from './TodoForm.module.scss'
-import Button from '../UI/Button'
+import Button from '../../UI/Button'
 import { useState } from 'react'
 
 function TodoForm({ addTodo }) {

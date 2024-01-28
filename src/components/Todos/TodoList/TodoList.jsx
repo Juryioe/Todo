@@ -1,6 +1,6 @@
 import styles from './TodoList.module.scss'
-import Todo from './Todo'
-import TodosActions from './TodosActions'
+import Todo from '../Todo/Todo'
+import TodosActions from '../TodoActions/TodosActions'
 
 function TodoList({
   todo,
