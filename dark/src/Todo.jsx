@@ -55,18 +55,18 @@ function App() {
         <IoCheckmarkDoneCircleOutline size={'3rem'} className="logoIcon" />
         <h1>Task Up</h1>
       </div>
+      <TodoForm addTodo={addTodoHandler} />
+      <TodoCounter
+        completedTodos={completedTodos}
+        notCompletedTodos={notCompletedTodos}
+        todos={todos}
+      />
       <TodoList
         todos={todos}
         setTodos={setTodos}
         deleteTodo={deleteTodoHandler}
         todoCompleted={todoCompletedHandler}
         deleteCompletedHandler={deleteCompletedTodoHandler}
-      />
-      <TodoForm addTodo={addTodoHandler} />
-      <TodoCounter
-        completedTodos={completedTodos}
-        notCompletedTodos={notCompletedTodos}
-        todos={todos}
       />
     </div>
   )

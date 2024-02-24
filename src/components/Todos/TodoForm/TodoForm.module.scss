@@ -1,29 +1,22 @@
 form {
+  margin: 10px 0;
   width: 100%;
   gap: 10px;
   display: flex;
+  justify-content: center;
   input {
-    background-color: #24273d;
     color: #9b9ebf;
     font-size: 1.1rem;
     border-radius: 5px;
     padding: 1rem 4rem;
     text-align: center;
-    border: 1px solid #363a57;
+    border: none;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+
     width: 100%;
     outline: none;
   }
   input:focus {
-    border: 1px solid #696996;
-  }
-  button {
-    background: #581c8e;
-    background: linear-gradient(0deg, #581c8e, #954dd6);
-    border: 0;
-    color: #c8cae1;
-    font-size: 1.1rem;
-    padding: 1rem 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
+    border: 1px solid #717171;
   }
 }

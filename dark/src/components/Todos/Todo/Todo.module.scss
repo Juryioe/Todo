@@ -5,13 +5,13 @@ $completedTaskColor: #afe08b;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  color: #707070;
-  background-color: #ffffff;
-  padding: 0.35rem;
+  color: #d5cece;
+  background-color: #24273d;
+  padding: 0.5rem;
+  border: 1px solid #363a57;
   border-radius: 5px;
   margin-top: 10px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
-
+  letter-spacing: 1px;
   .task {
     max-width: 320px;
     font-weight: 400;
@@ -64,5 +64,5 @@ $completedTaskColor: #afe08b;
 }
 
 .todoWrapper:hover {
-  background-color: #f4f4f4;
+  background-color: #2b2e48;
 }

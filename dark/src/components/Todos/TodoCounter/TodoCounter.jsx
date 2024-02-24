@@ -3,13 +3,11 @@ function TodoCounter({ completedTodos, notCompletedTodos, todos }) {
     !!todos.length && (
       <div
         style={{
-          color: '#858585',
+          marginTop: '35px',
+          color: '#d0c6ee',
           display: 'flex',
-          padding: '10px 20px',
           gap: '30px',
-          fontSize: '.9rem',
-          border: '1px solid #ddd',
-          borderRadius: '7px',
+          fontSize: '1rem',
         }}
       >
         <div>
