@@ -1,28 +1,26 @@
+import { Grow } from '@mui/material'
 import { RiTodoFill } from 'react-icons/ri'
 import { TiDelete } from 'react-icons/ti'
-import { MdOutlineDone } from 'react-icons/md'
-
 import styles from './Todo.module.scss'
 
-function Todo({ todo, deleteTodo, todoCompleted }) {
-  return (
+const Todo = ({ todo, deleteTodo, todoCompleted }) => (
+  <Grow in mountOnEnter unmountOnExit timeout={500}>
     <div className={styles.todoWrapper}>
       <div className={styles.taskWrapper}>
         <RiTodoFill
           className={
             todo.isCompleted ? styles.completedtodoIcon : styles.todoIcon
           }
+          onClick={() => todoCompleted(todo.id)}
         />
-        <h3 className={todo.isCompleted ? styles.completedTask : styles.task}>
+        <h3
+          className={todo.isCompleted ? styles.completedTask : styles.task}
+          onClick={() => todoCompleted(todo.id)}
+        >
           {todo.text}
         </h3>
       </div>
       <div className={styles.buttons}>
-        <MdOutlineDone
-          className={styles.completeIcon}
-          size={'1.5rem'}
-          onClick={() => todoCompleted(todo.id)}
-        />
         <TiDelete
           size={'1.7rem'}
           className={styles.deleteIcon}
@@ -30,7 +28,7 @@ function Todo({ todo, deleteTodo, todoCompleted }) {
         />
       </div>
     </div>
-  )
-}
+  </Grow>
+)
 
 export default Todo

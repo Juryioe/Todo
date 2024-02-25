@@ -1,9 +1,9 @@
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded'
 import { IconButton } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './TodoForm.module.scss'
 
-function TodoForm({ addTodo }) {
+const TodoForm = ({ addTodo, todos }) => {
   const [text, setText] = useState('')
   const [display, setDisplay] = useState(true)
 
@@ -14,6 +14,12 @@ function TodoForm({ addTodo }) {
     addTodo(text)
     setText('')
   }
+
+  useEffect(() => {
+    if (todos.length === 0) {
+      setDisplay(true)
+    }
+  }, [todos])
 
   return (
     <form className={styles.form} onSubmit={onSubmitHandler}>
@@ -32,7 +38,7 @@ function TodoForm({ addTodo }) {
         type="submit"
         onClick={() => setDisplay(true)}
       >
-        <AddCircleRoundedIcon sx={{ color: 'primary', fontSize: 40 }} />
+        <AddCircleRoundedIcon sx={{ color: 'secondary', fontSize: 40 }} />
       </IconButton>
     </form>
   )

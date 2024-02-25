@@ -1,4 +1,4 @@
-$completedTaskColor: #afe08b;
+$completedTaskColor: #408ca1;
 
 .todoWrapper {
   display: flex;
@@ -6,9 +6,9 @@ $completedTaskColor: #afe08b;
   align-items: center;
   width: 100%;
   color: #707070;
-  background-color: #ffffff;
+  background-color: #fdfdfd;
   padding: 0.35rem;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-top: 10px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 
@@ -36,6 +36,7 @@ $completedTaskColor: #afe08b;
   }
   .completedtodoIcon {
     color: $completedTaskColor;
+    cursor: pointer;
   }
   .deleteIcon {
     color: #c5bebe;
@@ -46,16 +47,6 @@ $completedTaskColor: #afe08b;
     color: #d28ed4;
     transform: scale(1.1);
   }
-  .completeIcon {
-    color: #c5bebe;
-    transition: all 0.2s ease-in-out;
-
-    cursor: pointer;
-  }
-  .completeIcon:hover {
-    color: $completedTaskColor;
-    transform: scale(1.1);
-  }
   .buttons {
     display: flex;
     align-items: center;
@@ -64,5 +55,10 @@ $completedTaskColor: #afe08b;
 }
 
 .todoWrapper:hover {
-  background-color: #f4f4f4;
+  background-color: #f5fafd;
+}
+
+h3 {
+  font-size: 1rem;
+  cursor: pointer;
 }

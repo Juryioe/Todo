@@ -1,15 +1,20 @@
+import DoneAllRoundedIcon from '@mui/icons-material/DoneAllRounded'
+import { Slide } from '@mui/material'
 import { useEffect, useState } from 'react'
-import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5'
+import Confetti from 'react-confetti'
+import useWindowSize from 'react-use/lib/useWindowSize'
 import { uid } from 'uid'
 import './App.scss'
 import TodoCounter from './components/Todos/TodoCounter/TodoCounter'
 import TodoForm from './components/Todos/TodoForm/TodoForm'
 import TodoList from './components/Todos/TodoList/TodoList'
 
-function App() {
+const App = () => {
   const [todos, setTodos] = useState([])
   const [completedTodos, setCompletedTodos] = useState([])
   const [notCompletedTodos, setNotCompletedTodos] = useState([])
+  const [confDisplay, setConfDisplay] = useState(false)
+  const { width, height } = useWindowSize()
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem('todos'))
@@ -17,6 +22,7 @@ function App() {
       setTodos(storedTodos)
     }
   }, [])
+
   const addTodoHandler = (text) => {
     const newTodo = { text: text, isCompleted: false, id: uid() }
     setTodos((prevTodos) => [...prevTodos, newTodo])
@@ -37,7 +43,13 @@ function App() {
   }
 
   const deleteCompletedTodoHandler = () => {
-    setTodos(todos.filter((todo) => !todo.isCompleted))
+    setTodos((prevTodos) => {
+      const filteredTodos = prevTodos.filter((todo) => !todo.isCompleted)
+      if (filteredTodos.length === 0) {
+        setConfDisplay(true)
+      }
+      return filteredTodos
+    })
   }
 
   useEffect(() => {
@@ -49,25 +61,45 @@ function App() {
     setNotCompletedTodos(todos.filter((todo) => !todo.isCompleted))
   }, [todos])
 
+  useEffect(() => {
+    if (confDisplay) {
+      const timer = setTimeout(() => {
+        setConfDisplay(false)
+      }, 7000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [confDisplay])
+
   return (
-    <div className="container">
-      <div className="logoWrapper">
-        <IoCheckmarkDoneCircleOutline size={'3rem'} className="logoIcon" />
-        <h1>Task Up</h1>
+    <div className="texture">
+      {confDisplay && <Confetti width={width} height={height} />}
+      <div className="container">
+        <Slide direction="down" in mountOnEnter unmountOnExit timeout={500}>
+          <div className="logoWrapper">
+            <DoneAllRoundedIcon
+              sx={{ fontSize: '45px', mr: 1, color: '#fdfdfd' }}
+            />
+
+            <h1>Task Up</h1>
+          </div>
+        </Slide>
+
+        <TodoCounter
+          completedTodos={completedTodos}
+          notCompletedTodos={notCompletedTodos}
+          todos={todos}
+        />
+        <TodoList
+          todos={todos}
+          setTodos={setTodos}
+          deleteTodo={deleteTodoHandler}
+          todoCompleted={todoCompletedHandler}
+          deleteCompletedHandler={deleteCompletedTodoHandler}
+          setConfDisplay={setConfDisplay}
+        />
+        <TodoForm addTodo={addTodoHandler} todos={todos} />
       </div>
-      <TodoList
-        todos={todos}
-        setTodos={setTodos}
-        deleteTodo={deleteTodoHandler}
-        todoCompleted={todoCompletedHandler}
-        deleteCompletedHandler={deleteCompletedTodoHandler}
-      />
-      <TodoForm addTodo={addTodoHandler} />
-      <TodoCounter
-        completedTodos={completedTodos}
-        notCompletedTodos={notCompletedTodos}
-        todos={todos}
-      />
     </div>
   )
 }
